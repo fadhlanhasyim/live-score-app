@@ -70,7 +70,7 @@ class NewsPage extends StatelessWidget {
                     "https://assets.goal.com/v3/assets/bltcc7a7ffd2fbf71f5/bltf4d8ac620085cad4/6282ba1d9154c305839009be/GettyImages-1240714366.jpg?quality=80&width=1000&format=pjpg&auto=webp"),
               ),
               Container(
-                child: FavoriteButton(),
+                child: SaveButton(),
                 color: Colors.grey.shade500,
               )
             ]),
@@ -118,7 +118,7 @@ class NewsPage extends StatelessWidget {
                   Container(
                     width: width / 10,
                     height: width / 10,
-                    child: FavoriteButton(),
+                    child: SaveButton(),
                     color: Colors.grey.shade500,
                   )
                 ]),
@@ -149,7 +149,7 @@ class NewsPage extends StatelessWidget {
                   Container(
                     width: width / 10,
                     height: width / 10,
-                    child: FavoriteButton(),
+                    child: SaveButton(),
                     color: Colors.grey.shade500,
                   )
                 ]),
@@ -180,7 +180,7 @@ class NewsPage extends StatelessWidget {
                   Container(
                     width: width / 10,
                     height: width / 10,
-                    child: FavoriteButton(),
+                    child: SaveButton(),
                     color: Colors.grey.shade500,
                   )
                 ]),
@@ -203,27 +203,27 @@ class NewsPage extends StatelessWidget {
   }
 }
 
-class FavoriteButton extends StatefulWidget {
-  const FavoriteButton({super.key});
+class SaveButton extends StatefulWidget {
+  const SaveButton({super.key});
 
   @override
-  State<FavoriteButton> createState() => _FavoriteButtonState();
+  State<SaveButton> createState() => _SaveButtonState();
 }
 
-class _FavoriteButtonState extends State<FavoriteButton> {
-  bool isFavorite = false;
+class _SaveButtonState extends State<SaveButton> {
+  bool isSaved = false;
 
   @override
   Widget build(BuildContext context) {
     return IconButton(
         onPressed: (() {
           setState(() {
-            isFavorite = !isFavorite;
+            isSaved = !isSaved;
           });
         }),
         icon: Icon(
-          isFavorite ? Icons.favorite : Icons.favorite_border,
-          color: Colors.red,
+          isSaved ? Icons.bookmark : Icons.bookmark_border,
+          color: Colors.black,
         ));
   }
 }
