@@ -20,7 +20,7 @@ class MainPage extends StatelessWidget {
     return Scaffold(
       // extendBodyBehindAppBar: true,
       appBar: AppBar(
-        title: Text("Football App"),
+        title: const Text("Football App"),
         centerTitle: true,
         elevation: 0,
       ),
@@ -33,28 +33,31 @@ class MainPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Row(children: [
-                  ClipOval(
-                    child: Container(
-                      width: width / 6,
-                      child: Image.network(
-                          "https://brandlogos.net/wp-content/uploads/2021/10/premier-league-logo.png"),
+                Row(
+                  children: [
+                    ClipOval(
+                      child: SizedBox(
+                        width: width / 6,
+                        child: Image.network(
+                            "https://brandlogos.net/wp-content/uploads/2021/10/premier-league-logo.png"),
+                      ),
                     ),
-                  ),
-                  Column(
-                    crossAxisAlignment: CrossAxisAlignment.start,
-                    children: [
-                      Text("Welcome to",
+                    Column(
+                      crossAxisAlignment: CrossAxisAlignment.start,
+                      children: [
+                        Text("Welcome to",
+                            style: TextStyle(
+                                fontSize: height / 40, color: Colors.grey)),
+                        Text(
+                          "Premier League",
                           style: TextStyle(
-                              fontSize: height / 40, color: Colors.grey)),
-                      Text(
-                        "Premier League",
-                        style: TextStyle(
-                            fontSize: height / 30, fontWeight: FontWeight.bold),
-                      )
-                    ],
-                  ),
-                ]),
+                              fontSize: height / 30,
+                              fontWeight: FontWeight.bold),
+                        )
+                      ],
+                    ),
+                  ],
+                ),
                 ClipOval(
                   child: Container(
                     width: width / 9,
@@ -94,9 +97,11 @@ class MainPage extends StatelessWidget {
             Row(
               mainAxisAlignment: MainAxisAlignment.spaceBetween,
               children: [
-                Text("League Table",
-                    style: TextStyle(
-                        fontSize: height / 40, fontWeight: FontWeight.bold))
+                Text(
+                  "League Table",
+                  style: TextStyle(
+                      fontSize: height / 40, fontWeight: FontWeight.bold),
+                )
               ],
             ),
             SizedBox(
@@ -104,8 +109,9 @@ class MainPage extends StatelessWidget {
             ),
             Table(
               border: TableBorder.symmetric(
-                  inside: BorderSide(color: Colors.white),
-                  outside: BorderSide(color: Colors.grey)),
+                inside: const BorderSide(color: Colors.white),
+                outside: const BorderSide(color: Colors.grey),
+              ),
               columnWidths: const {
                 0: FractionColumnWidth(0.2),
                 1: FractionColumnWidth(0.425),
@@ -173,7 +179,7 @@ class MainPage extends StatelessWidget {
             Container(
               alignment: Alignment.centerRight,
               padding: EdgeInsets.only(top: height / 80, right: width / 60),
-              child: Text(
+              child: const Text(
                 "Full Table",
                 style: TextStyle(fontWeight: FontWeight.bold),
               ),
@@ -181,16 +187,16 @@ class MainPage extends StatelessWidget {
             SizedBox(
               height: height / 40,
             ),
-            Text("Headline News",
-                style: TextStyle(
-                    fontSize: height / 40, fontWeight: FontWeight.bold)),
+            Text(
+              "Headline News",
+              style:
+                  TextStyle(fontSize: height / 40, fontWeight: FontWeight.bold),
+            ),
             SizedBox(
               height: height / 60,
             ),
-            Container(
-              child: Image.network(
-                  "https://akcdn.detik.net.id/visual/2022/05/04/villlarreal-vs-liverpool-2_169.jpeg?w=650"),
-            ),
+            Image.network(
+                "https://akcdn.detik.net.id/visual/2022/05/04/villlarreal-vs-liverpool-2_169.jpeg?w=650"),
             Padding(
               padding: EdgeInsets.only(top: height / 70),
               child: Text(
@@ -200,30 +206,36 @@ class MainPage extends StatelessWidget {
                     fontSize: height / 40, fontWeight: FontWeight.bold),
               ),
             ),
-            SizedBox(
-              height: height / 40,
-            ),
-            Center(
-              child: Container(
-                // width: width / 3,
-                decoration: BoxDecoration(
+            Padding(
+              padding: EdgeInsets.all(height / 80),
+              child: Center(
+                child: Container(
+                  // width: width / 3,
+                  decoration: const BoxDecoration(
                     color: Color(0xff650e51),
-                    borderRadius: BorderRadius.all(Radius.circular(10))),
-                child: Row(
-                  mainAxisSize: MainAxisSize.min,
-                  children: [
-                    IconButton(
+                    borderRadius: BorderRadius.all(
+                      Radius.circular(10),
+                    ),
+                  ),
+                  child: Row(
+                    mainAxisSize: MainAxisSize.min,
+                    children: [
+                      IconButton(
                         onPressed: () {
                           Navigator.push(
-                              context,
-                              MaterialPageRoute(
-                                  builder: (context) => const NewsPage()));
+                            context,
+                            MaterialPageRoute(
+                              builder: (context) => const NewsPage(),
+                            ),
+                          );
                         },
-                        icon: Icon(
+                        icon: const Icon(
                           Icons.newspaper,
                           color: Colors.white,
-                        )),
-                  ],
+                        ),
+                      ),
+                    ],
+                  ),
                 ),
               ),
             ),
@@ -249,8 +261,8 @@ class TableCell extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return Container(
-      padding: EdgeInsets.all(6),
-      color: isHeader ? Color(0xff650e51) : Colors.white,
+      padding: const EdgeInsets.all(6),
+      color: isHeader ? const Color(0xff650e51) : Colors.white,
       child: Text(
         text,
         style: TextStyle(
@@ -277,13 +289,13 @@ class MatchCard extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     return ClipRRect(
-      borderRadius: BorderRadius.all(Radius.circular(25)),
+      borderRadius: const BorderRadius.all(Radius.circular(25)),
       child: Card(
         child: Column(children: [
           Container(
-            padding: EdgeInsets.symmetric(vertical: 4),
+            padding: const EdgeInsets.symmetric(vertical: 4),
             width: width / 2.1,
-            color: Color(0xff340040),
+            color: const Color(0xff340040),
             child: Column(
               children: [
                 Text("Premier League",
@@ -301,7 +313,7 @@ class MatchCard extends StatelessWidget {
           ),
           Container(
             width: width / 2.1,
-            color: Color(0xff650e51),
+            color: const Color(0xff650e51),
             child: Column(
               children: [
                 Row(
@@ -384,10 +396,10 @@ class MatchCard extends StatelessWidget {
             child: Container(
               width: width / 2.1,
               padding: EdgeInsets.symmetric(vertical: height / 100),
-              color: Color(0xff340040),
+              color: const Color(0xff340040),
               child: Text(
                 match.venue,
-                style: TextStyle(color: Colors.white),
+                style: const TextStyle(color: Colors.white),
                 textAlign: TextAlign.center,
               ),
             ),
